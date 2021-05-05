@@ -1,0 +1,18 @@
+db.commands.insertMany([
+{ _id:1, name:"Manchester", coach:"Eugene", players:["Kortak","Khalimov"]},
+{_id:2, name:"Real",coach:"Beneck",players:["Dem","Fargo"]}
+])
+
+db.commands.insertOne({_id:3, name:"Juventus", coach:"Abram",players:["Jov","Khali"]})
+
+db.games.insertMany([{_id:1, league:"champ", date:"21.03.2021",location:"Madrid",teams:[1,2],winner:1},{_id:2, league:"champ", date:"10.04.2021",location:"Berlin",teams:[1,3],winner:3},{_id:3, league:"classic", date:"6.01.2020",location:"Verna", teams:[2,3],winner:3}])
+
+db.games.updateOne({_id:1},{$set:{teams:["Manchester","Real"],winner:"Manchester"}})
+
+(input1)db.games.find({league:"champ"},{_id: 0}).pretty()
+
+(input2)db.commands.find({name:"Juventus"},{players:1, _id:0})
+
+(input3)db.games.find({"teams":"Real"},{_id:0})
+
+db.games.distinct("league")
